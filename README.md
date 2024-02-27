@@ -24,9 +24,7 @@ make run
 make run-load-tests
 ```
 ## Output / Report:
-NBomber will provided two different reports.
-1. Console:  
-![](docs/report_console.png)
-2. HTML:  
+NBomber will provide two different reports, at the console and another HTML view.
+<img src='docs/report_console.png'>
 <img src='docs/report_html1.png' width='988'>
 <img src='docs/report_html2.png' width='988'>
