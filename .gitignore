@@ -27,3 +27,4 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 WebApi.Load.Tests/reports/*
+reports/*
