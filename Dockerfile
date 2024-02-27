@@ -8,6 +8,7 @@ WORKDIR /application
 # Copy Solution and Project files:
 COPY WebApi.sln WebApi.sln
 COPY WebApi/WebApi.csproj WebApi/WebApi.csproj
+COPY WebApi.Load.Tests/WebApi.Load.Tests.csproj WebApi.Load.Tests/WebApi.Load.Tests.csproj
 COPY WebApi.Tests/WebApi.Tests.csproj WebApi.Tests/WebApi.Tests.csproj
 # Restore packages:
 RUN  dotnet restore 
@@ -29,3 +30,8 @@ WORKDIR /application
 COPY ./WebApi/Data/ /application/data/
 COPY --from=publish /application/dist /application
 CMD ["./WebApi"]
+
+FROM base as webapi-load
+ENV ASPNETCORE_ENVIRONMENT=Docker
+RUN dotnet build
+CMD ["dotnet", "run", "--project", "WebApi.Load.Tests/WebApi.Load.Tests.csproj", "--launch-profile", "Docker"]

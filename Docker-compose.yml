@@ -1,16 +1,25 @@
 version: "3.8"
 
 services:
-  webapi:
-    container_name: webapi
-    build:
-      dockerfile: Dockerfile
-      context: .
-      target: webapi
-    ports:
-      - 7117:7117
-    deploy:
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 515M
+    webapi:
+        container_name: webapi
+        build:
+            dockerfile: Dockerfile
+            context: .
+            target: webapi
+        ports:
+            - 7117:7117
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.0'
+                    memory: 1gb
+
+    webapi-load:
+        container_name: webapi-load
+        build:
+            dockerfile: Dockerfile
+            context: .
+            target: webapi-load
+        depends_on:
+            - webapi
