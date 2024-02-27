@@ -14,3 +14,9 @@ restore:
 
 build:
 	@dotnet build ./webapi.sln
+
+run:
+	@dotnet run --project WebApi/WebApi.csproj
+
+run-load-tests:
+	@dotnet run --project WebApi.Load.Tests/WebApi.Load.Tests.csproj
