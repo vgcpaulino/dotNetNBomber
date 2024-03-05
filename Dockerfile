@@ -33,5 +33,7 @@ CMD ["./WebApi"]
 
 FROM base as webapi-load
 ENV ASPNETCORE_ENVIRONMENT=Docker
-RUN dotnet build
-CMD ["dotnet", "run", "--project", "WebApi.Load.Tests/WebApi.Load.Tests.csproj", "--launch-profile", "Docker"]
+ENV BASE_URL=http://webapi:7117
+# RUN dotnet build
+# CMD ["dotnet", "run", "--project", "WebApi.Load.Tests/WebApi.Load.Tests.csproj", "--launch-profile", "Docker"]
+CMD ["dotnet", "test", "WebApi.Load.Tests/WebApi.Load.Tests.csproj"]
