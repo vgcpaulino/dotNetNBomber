@@ -13,7 +13,7 @@ services:
             resources:
                 limits:
                     cpus: '1.0'
-                    memory: 1gb
+                    memory: 2gb
 
     webapi-load:
         container_name: webapi-load
